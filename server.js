@@ -1,7 +1,17 @@
 var express = require("express");
+var fs = require("fs");
 
 var app = express();
 app.use(express.logger());
+
+app.get('/', function(request, response) {
+  fs.readFile('index.html',function (err, data){
+        response.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length, 'Access-Control-Allow-Origin': '*'});
+        response.write(data);
+        response.end();
+    });
+});
+
 
 app.get('/js', function(request, response) {
   response.setHeader('Content-Type', 'text/plain');
