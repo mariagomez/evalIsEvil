@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
 app.get('/js', function(request, response) {
   response.setHeader('Content-Type', 'text/plain');
   response.setHeader('Access-Control-Allow-Origin', '*');
-  response.send('alert("Hello World!");');
+  response.send('alert("Hello World!"); document.getElementById("result").innerHTML="RESULT!";');
 });
 
 var port = process.env.PORT || 5000;
