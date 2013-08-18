@@ -2,22 +2,51 @@
 <html>
 
   <head>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
     <script>
-    	$.ajax({ 
+
+      $.ajax({ 
 			'url': '/js', 
 			'async':   true,
 			'success': function(data) {
-				console.log(data);
-		  				eval(data);
-						}
+
+				      console.log(data);
+		  	      
+              var placeholder = document.getElementById('placeholder'); 
+              var placeholderQS = document.getElementById('placeholderQS');
+
+              placeholder.innerHTML = data;
+
+              var scripts = placeholder.getElementsByTagName("script");
+              var head = document.getElementsByTagName("head")[0];
+
+              for (var i=0; i<scripts.length; i++) {
+                var script = document.createElement("script");
+                script.innerHTML = scripts[i].innerHTML;
+
+                head.appendChild(script);
+              }
+
+              var getElementByIdDiv = document.getElementById('toKeep');
+      			  var querySelectorDiv = placeholder.querySelector('#toKeep');
+            
+              alert("GET ELEMENT BY ID " + getElementByIdDiv.innerHTML);
+              alert("QUERY SELECTOR " + querySelectorDiv.innerHTML);
+              
+              placeholder.innerHTML = getElementByIdDiv.innerHTML;
+              placeholderQS.innerHTML = querySelectorDiv.innerHTML;
+            }
 			});
+
+
     </script>
   </head>
 
   <body>
-    <h1>Hello Plunker!</h1>
-    <span id="result">No Result</span>
+    <h1>Hello World!</h1>
+    <a href='javascript:foo();'>Foo</a>
+    <div id='placeholder'> </div>
+    <div id='placeholderQS'> </div>
   </body>
 
 </html>
