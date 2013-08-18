@@ -20,6 +20,7 @@
 
               for (var i=0; i<scripts.length; i++) {
                 var script = document.createElement("script");
+                alert(scripts[i].innerHTML);
                 script.innerHTML = scripts[i].innerHTML;
 
                 head.appendChild(script);
