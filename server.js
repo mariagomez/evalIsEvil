@@ -12,14 +12,13 @@ app.get('/', function(request, response) {
     });
 });
 
-app.get('/jquery.js', function(request, response) {
-  fs.readFile('jquery.js',function (err, data){
-        response.writeHead(200, {'Content-Type': 'text/plain','Content-Length':data.length});
+app.get('/qs', function(request, response) {
+  fs.readFile('index2.html',function (err, data){
+        response.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
         response.write(data);
         response.end();
     });
 });
-
 
 app.get('/js', function(request, response) {
   response.setHeader('Content-Type', 'text/plain');

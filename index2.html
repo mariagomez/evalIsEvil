@@ -10,11 +10,11 @@
 			'async':   true,
 			'success': function(data) {
 
-				      var placeholder = document.getElementById('placeholder'); 
-              
-              placeholder.innerHTML = data;
+				      var placeholderQS = document.getElementById('placeholderQS');
 
-              var scripts = placeholder.getElementsByTagName("script");
+              placeholderQS.innerHTML = data;
+
+              var scripts = placeholderQS.getElementsByTagName("script");
               var head = document.getElementsByTagName("head")[0];
 
               for (var i=0; i<scripts.length; i++) {
@@ -26,12 +26,12 @@
                 head.appendChild(script);
               }
 
-              var getElementByIdDiv = document.getElementById('toKeep');
-      			  
-              alert("GET ELEMENT BY ID " + getElementByIdDiv.innerHTML);
+              var querySelectorDiv = placeholderQS.querySelector('#toKeep');
+            
+              alert("QUERY SELECTOR " + querySelectorDiv.innerHTML);
               
-              placeholder.innerHTML = getElementByIdDiv.innerHTML;
-          }
+              placeholderQS.innerHTML = querySelectorDiv.innerHTML;
+            }
 			});
 
 
@@ -41,7 +41,7 @@
   <body>
     <h1>Hello World!</h1>
     <a href='javascript:foo();'>Foo</a>
-    <div id='placeholder'> </div>
+    <div id='placeholderQS'> </div>
   </body>
 
 </html>
