@@ -18,10 +18,10 @@
               var head = document.getElementsByTagName("head")[0];
 
               for (var i=0; i<scripts.length; i++) {
-                var script = document.createElement("script");
+                var script = $("script");
                 alert(scripts[i].innerHTML);
                 alert(script);
-                script.innerHTML = "<p>HEllo</p>";
+                script.innerHTML = scripts[i].innerHTML;
                 alert(script.innerHTML);
                 head.appendChild(script);
               }
